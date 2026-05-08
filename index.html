@@ -349,10 +349,9 @@ Once you have read and accepted the Data Usage Agreement below, please send your
 <input type="checkbox" id="agreeCheckbox" onchange="toggleEnrollButton()">
 We accept the <span class="clickable" onclick="document.getElementById('duaModal').style.display='block'">Competition Data Usage Agreement</span>
 </p>
-<button id="enrollBtn" class="button-disabled" disabled onclick="window.location.href='mailto:ieee.bigdata2026@outlook.com?subject=SRAM2026 Team Registration'">Enroll</button>
-
+<button id="enrollBtn" class="button-disabled" disabled onclick="document.getElementById('enrollModal').style.display='block'">Enroll</button>
 <br><br>
-<p style="color:#888; font-size:13px;">Registration email address: <a href="mailto:ieee.bigdata2026@outlook.com">hialex.li@connect.polyu.hk</a></p>
+<p style="color:#888; font-size:13px;">Registration email address: <a href="mailto:hialex.li@connect.polyu.hk">hialex.li@connect.polyu.hk</a></p>
 </div>
 
 <!-- Organizing Committee -->
@@ -368,7 +367,7 @@ We accept the <span class="clickable" onclick="document.getElementById('duaModal
 <!-- Contact -->
 <button class="accordion">Contact</button>
 <div class="panel">
-<p>For registration and general inquiries, contact Alex at <a href="mailto:hialexlee@hotmail.com">hialex.li@connect.polyu.hk</a></p>
+<p>For registration and general inquiries, contact Alex at <a href="mailto:hialex.li@connect.polyu.hk">hialex.li@connect.polyu.hk</a></p>
 </div>
 
 <!-- FAQ -->
@@ -406,6 +405,20 @@ We accept the <span class="clickable" onclick="document.getElementById('duaModal
 </div>
 </div>
 
+<!-- Enroll Modal -->
+<div id="enrollModal" class="modal-bg">
+  <div class="modal-content">
+    <span class="close-btn" onclick="document.getElementById('enrollModal').style.display='none'">&times;</span>
+    <h2>Registration</h2>
+    <p>Once you have accepted the Data Usage Agreement, please send us your team's information in the following format via email. We will respond to your inquiry and provide you with the dataset:</p>
+    <ul>
+      <li>Team name.</li>
+      <li>List of Team Members with Affiliations.</li>
+      <li>Contact Person and Email Address.</li>
+    </ul>
+    <p>Registration email: <a href="mailto:hialex.li@connect.polyu.hk">hialex.li@connect.polyu.hk</a></p>
+  </div>
+</div>
 <!-- DUA Modal -->
 <div id="duaModal" class="modal-bg">
   <div class="modal-content">
@@ -513,10 +526,10 @@ We accept the <span class="clickable" onclick="document.getElementById('duaModal
 
   /* ── Close DUA modal on outside click ── */
   window.onclick = function(event) {
-    var modal = document.getElementById('duaModal');
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+    var dua = document.getElementById('duaModal');
+    var enroll = document.getElementById('enrollModal');
+    if (event.target === dua) dua.style.display = 'none';
+    if (event.target === enroll) enroll.style.display = 'none';
   };
 </script>
 </body>
