@@ -469,6 +469,10 @@ We accept the <span class="clickable" onclick="document.getElementById('duaModal
       } else {
         answer.style.display = "block";
       }
+      var panel = this.closest(".panel");
+      if (panel) {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
     });
   }
 
