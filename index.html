@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEEE BigData 2026 Cup: Suicide Risk Assessment on Social Media</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  thead th {
+    background-color: #f2f2f2;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tbody tr:hover {
+    background-color: #eaeaea;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  li {
+    margin-bottom: 10px;
+    padding-left: 4ch;
+  }
+  li:before {
+    content: '• ';
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  .active:after {
+    content: "\2212";
+  }
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .clickable {
+    text-decoration: underline;
+    color: #0645AD;
+    cursor: pointer;
+    padding: 3px;
+  }
+  .modal-bg {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 100px;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close-btn:hover, .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .button-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 { text-align: center; }
+  .collapsible {
+    cursor: pointer;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin: 10px 0;
+  }
+  .collapsible:hover { background-color: #f1f1f1; }
+  .content {
+    padding: 15px 20px;
+    display: none;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  .faq-item { margin: 10px 0; }
+  .faq-question {
+    cursor: pointer;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .faq-question:hover { background-color: #f1f1f1; }
+  .faq-answer {
+    display: none;
+    padding: 15px 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+  }
+</style>
+</head>
+<body>
+
+<h2>IEEE BigData 2026 Cup: Suicide Risk Assessment on Social Media</h2>
+
+<p>
+The IEEE BigData 2026 Cup Challenge on Suicide Risk Assessment on Social Media (SRAM) is part of the annual Big Data Cup series held under the auspices of the IEEE International Conference on Big Data (<a href="https://bigdataieee.org/BigData2026/" target="_blank">https://bigdataieee.org/BigData2026/</a>). This competition introduces a <strong>dual-objective</strong> design that advances both predictive accuracy and clinical interpretability: participants must (1) predict the suicide risk level of a social media post, and (2) extract structured clinical evidence that explains the prediction. The winners will be announced at the IEEE BigData 2026 conference, scheduled for <strong>December 14–17, 2026, in Phoenix, Arizona, USA</strong>.
+</p>
+
+<!-- Overview -->
+<button class="accordion">Overview</button>
+<div class="panel">
+<p>
+The topic of this year's competition is <strong>suicide risk assessment</strong> from Reddit posts, with a focus on both <em>risk-level prediction</em> and <em>clinical evidence extraction</em>. The dataset contains Reddit posts collected from mental health communities (e.g., r/SuicideWatch), annotated by trained annotators following established clinical risk assessment protocols grounded in the Interpersonal Theory of Suicide (IPTS), the Integrated Motivational-Volitional (IMV) Model, and the Fluid Vulnerability Theory (FVT).
+<br><br>
+This challenge introduces clinical interpretability as a core evaluation dimension. Unlike previous editions that focused solely on classification, the 2026 challenge requires participants to provide <em>evidence</em> for their predictions—spanning risk factors, protective factors, and warning signs present in the post text.
+<br><br>
+Authors of selected challenge reports will be invited to extend their work for publication in the IEEE BigData 2026 conference proceedings (subject to review by the Organizing Committee) and to present at the ASRAM Workshop (AI for Suicide Risk Assessment on Social Media) co-located with the conference. Invited teams will be selected based on their final rank, the innovativeness of their approach, and the quality of the submitted report.
+</p>
+</div>
+
+<!-- Task Description -->
+<button class="accordion">Task description</button>
+<div class="panel">
+<p>
+This challenge consists of <strong>two subtasks</strong>. Participants may compete in one or both subtasks. The final composite score is weighted <strong>60% on Subtask 1</strong> and <strong>40% on Subtask 2</strong>, with Macro F1 used as the evaluation metric for both.
+<br><br>
+
+<strong>Subtask 1: Suicide Risk Level Prediction (Weight: 60%)</strong><br>
+Given a Reddit post, predict the author's suicide risk level into one of four categories:
+<ul>
+  <li><strong>No Risk</strong>: The post shows no indicators of suicidal thought or intent.</li>
+  <li><strong>Low Risk</strong>: The post mentions distress but no clear suicidal ideation.</li>
+  <li><strong>Moderate Risk</strong>: The post expresses suicidal ideation without a concrete plan.</li>
+  <li><strong>High Risk</strong>: The post expresses suicidal intent, a plan, or describes a recent attempt.</li>
+</ul>
+<strong>Evaluation (Subtask 1):</strong> Macro F1 score across all four risk levels.
+<br><br>
+
+<strong>Subtask 2: Structured Clinical Evidence Extraction (Weight: 40%)</strong><br>
+Given the same post, identify and categorize text spans that serve as clinical evidence for the risk-level assessment. Evidence spans fall into three categories:
+<ul>
+  <li><strong>Risk Factor</strong>: A span indicating elevated risk (e.g., hopelessness, social isolation, prior attempt).</li>
+  <li><strong>Protective Factor</strong>: A span indicating resilience or support (e.g., family connection, future plans, professional help-seeking).</li>
+  <li><strong>Warning Sign</strong>: A span indicating imminent danger signals (e.g., giving away possessions, saying goodbye).</li>
+</ul>
+<strong>Evaluation (Subtask 2):</strong> Macro F1 score across all three evidence categories.
+<br><br>
+
+<strong>Composite Scoring:</strong> The final leaderboard score is computed as:
+<br>
+<code>Final Score = 0.60 × Macro_F1(Subtask1) + 0.40 × Macro_F1(Subtask2)</code>
+<br>
+Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no penalty for skipping Subtask 2, but they are ineligible for the composite leaderboard).
+<br><br>
+
+<strong>Submission format:</strong> Please submit your predictions as a <code>.json</code> file with the following structure. The file name must be <code>YourTeamName.json</code>.
+<br><br>
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>post_id</td>
+      <td>string</td>
+      <td>The post identifier from the test set</td>
+    </tr>
+    <tr>
+      <td>risk_level</td>
+      <td>string</td>
+      <td>One of: no_risk, low_risk, moderate_risk, high_risk</td>
+    </tr>
+    <tr>
+      <td>evidence</td>
+      <td>list</td>
+      <td>List of {span, category} dicts for Subtask 2 (empty list if not participating)</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+A sample submission file and format validator script will be provided with the dataset release.
+<br><br>
+
+<strong>Final evaluation:</strong> The final evaluation will be conducted after the submission deadline using a held-out test set. Only teams that submit both their prediction file and a working notes report by the deadline will qualify for the final evaluation. Code and reports will be submitted via Google Drive or Baidu Drive; instructions will be sent by email in advance.
+</p>
+</div>
+
+<!-- Paper Submission Guidelines -->
+<button class="accordion" onclick="window.location.href='guidelines.html'">Paper Submission Guidelines</button>
+
+<!-- Prediction Submission -->
+<button class="accordion">Prediction file submission</button>
+<div class="panel">
+<p>
+Please submit the prediction file created by your team. Multiple submissions are permitted during the evaluation phase (up to 3 per day). The file format should be <code>.json</code>, and the file name must be: <code>YourTeamName.json</code>. Scores of uploaded prediction results will be updated on the leaderboard the following day. For a detailed explanation of the submission format, please refer to the 'Task Description' section above.
+</p>
+<form id="uploadForm">
+  <input type="file" id="fileInput" name="file" accept=".json" required>
+  <button type="submit">Upload</button>
+</form>
+<progress id="uploadProgress" value="0" max="100" style="width: 100%; display: none;"></progress>
+<p id="progressText" style="text-align: center;"></p>
+</div>
+
+<!-- Invitation to submit papers -->
+<button class="accordion">Invitation to submit papers</button>
+<div class="panel">
+<p>
+Based on the submitted works, teams will be evaluated according to the following selection criteria:
+</p>
+<ul>
+  <li>Model performance (30%)</li>
+  <li>Approach innovation (40%)</li>
+  <li>Report quality (30%)</li>
+</ul>
+<p>
+Top-performing teams will be invited to submit a working notes paper (up to 10 pages, double-column IEEE format) for the IEEE BigData 2026 proceedings and to present at the ASRAM Workshop.
+<br><br>
+<strong>Paper submission system:</strong> <a href="https://bigdataieee.org/BigData2026/" target="_blank">https://bigdataieee.org/BigData2026/</a> (link to be updated when the chairs open the proceedings submission portal).<br>
+<strong>Paper format:</strong> Same as the main conference paper — 10 pages, double-column IEEE format.
+</p>
+</div>
+
+<!-- Leaderboard -->
+<button class="accordion">Leaderboard</button>
+<div class="panel">
+<p>The leaderboard will be updated daily during the evaluation phase (starting October 1, 2026). Results below show the <strong>composite score</strong> (60% Subtask 1 + 40% Subtask 2 Macro F1).</p>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Team Name</th>
+      <th>Subtask 1 (Macro F1)</th>
+      <th>Subtask 2 (Macro F1)</th>
+      <th>Composite Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="5" style="text-align:center; color:#888;">
+        — Leaderboard will be populated once the evaluation phase opens (Oct 1, 2026) —
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p>Cash prizes will be awarded to the top 3 teams. We will contact the winning teams directly after the final evaluation.</p>
+</div>
+
+<!-- Competition Summary -->
+<button class="accordion">Competition summary</button>
+<div class="panel">
+<p><strong>Schedule</strong></p>
+<ul>
+  <li>Start of the competition, task revealed and registration opens — <strong>July 1, 2026</strong></li>
+  <li>Training data and development set released — <strong>August 1, 2026</strong></li>
+  <li>Deadline for teams to submit email of intent — <strong>September 1, 2026</strong></li>
+  <li>Evaluation phase opens, test set released — <strong>October 1, 2026</strong></li>
+  <li>Deadline for submitting prediction files and working notes — <strong>October 31, 2026</strong></li>
+  <li>Announcement of results and winning teams — <strong>November 10, 2026</strong></li>
+  <li>Sending invitations for submitting papers for the ASRAM Workshop at IEEE BigData 2026 — <strong>November 10, 2026</strong></li>
+  <li>Deadline for submitting invited papers — <strong>November 15, 2026</strong></li>
+  <li>Notification of paper acceptance — <strong>November 25, 2026</strong></li>
+  <li>Camera-ready of accepted papers due — <strong>December 1, 2026</strong></li>
+  <li>IEEE BigData 2026 conference, Phoenix, Arizona, USA — <strong>December 14–17, 2026</strong></li>
+</ul>
+
+<br>
+<p><strong>Awards</strong></p>
+<p>Attractive cash prizes will be awarded to the top-performing teams.</p>
+<ul>
+  <li>1000 USD for the 1st place solution</li>
+  <li>500 USD for the 2nd place solution</li>
+  <li>250 USD for the 3rd place solution</li>
+</ul>
+<p>Certificates of achievement will be issued to all prize-winning teams. Top teams are also invited to present at the ASRAM Workshop.</p>
+
+<br>
+<p><strong>Enroll</strong></p>
+<p>
+Once you have read and accepted the Data Usage Agreement below, please send your team's information to the registration email address in the following format. We will respond with the dataset download link.
+</p>
+<ul>
+  <li>Team name</li>
+  <li>List of team members with affiliations</li>
+  <li>Contact person and email address</li>
+  <li>Subtask(s) you intend to participate in (Subtask 1 only / Both subtasks)</li>
+</ul>
+<p>
+<input type="checkbox" id="agreeCheckbox" onchange="toggleEnrollButton()">
+We accept the <span class="clickable" onclick="document.getElementById('duaModal').style.display='block'">Competition Data Usage Agreement</span>
+</p>
+<button id="enrollBtn" class="button-disabled" disabled onclick="window.location.href='mailto:ieee.bigdata2026@outlook.com?subject=SRAM2026 Team Registration'">Enroll</button>
+
+<br><br>
+<p style="color:#888; font-size:13px;">Registration email address: <a href="mailto:ieee.bigdata2026@outlook.com">ieee.bigdata2026@outlook.com</a></p>
+</div>
+
+<!-- Organizing Committee -->
+<button class="accordion">Organizing committee</button>
+<div class="panel">
+<ul>
+  <li>Prof. Li Qing, The Hong Kong Polytechnic University</li>
+  <li>Dr. Hong Va Leong, The Hong Kong Polytechnic University</li>
+  <li>Li Jun (Alex), The Hong Kong Polytechnic University</li>
+</ul>
+</div>
+
+<!-- Contact -->
+<button class="accordion">Contact</button>
+<div class="panel">
+<p>For registration and general inquiries, contact Alex at <a href="mailto:hialexlee@hotmail.com">hialexlee@hotmail.com</a></p>
+<p>For inquiries about the dataset and Data Usage Agreement, contact Alex at <a href="mailto:hialexlee@hotmail.com">hialexlee@hotmail.com</a></p>
+<p>For inquiries about competition rankings and the leaderboard, contact the organizing committee at <a href="mailto:ieee.bigdata2026@outlook.com">ieee.bigdata2026@outlook.com</a></p>
+</div>
+
+<!-- FAQ -->
+<button class="accordion">FAQ</button>
+<div class="panel">
+<div class="container">
+  <div class="faq-item">
+    <div class="faq-question">Q: Do I need to submit a formal letter of intent?</div>
+    <div class="faq-answer">Participants do not need to submit a formal letter of intent. To register, simply send us an email by September 1, 2026 with your team information. Once you receive a reply with the dataset link, your registration is confirmed.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: Can I participate in only one subtask?</div>
+    <div class="faq-answer">Yes. Subtask 1 (Risk Level Prediction) is the primary task. You may choose to participate in Subtask 1 only. Teams that complete both subtasks will be ranked on the 60/40 composite leaderboard; Subtask 1-only teams will be ranked separately on the Subtask 1 leaderboard. Only composite-leaderboard teams are eligible for cash prizes.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: How many submissions are allowed per day?</div>
+    <div class="faq-answer">During the evaluation phase, teams may submit up to 3 prediction files per day. The best official submission by the deadline is used for final scoring.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: Are pre-trained language models and LLMs allowed?</div>
+    <div class="faq-answer">Yes. Participants may use any publicly available pre-trained model, including large language models (LLMs). Use of external labeled data beyond what is provided in the dataset must be declared in the working notes report.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: I uploaded predictions but the leaderboard score has not updated yet.</div>
+    <div class="faq-answer">We update the leaderboard each morning. If your score has not appeared after 24 hours, please notify us by email and we will update it immediately.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: What is the maximum team size?</div>
+    <div class="faq-answer">There is no strict maximum team size, but we recommend keeping teams to 5 or fewer members. All team members must be listed at registration and in the submitted working notes report.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Q: Will the test set labels be released after the competition?</div>
+    <div class="faq-answer">Yes. After the final evaluation and announcement of results, the complete annotated test set will be released to all registered participants for research purposes, subject to the Data Usage Agreement.</div>
+  </div>
+</div>
+</div>
+
+<!-- DUA Modal -->
+<div id="duaModal" class="modal-bg">
+  <div class="modal-content">
+    <span class="close-btn" onclick="document.getElementById('duaModal').style.display='none'">&times;</span>
+    <h2>Data Usage Agreement</h2>
+    <p>In consideration of the promises and mutual covenants contained in this Agreement, Recipient agrees to the terms and conditions below.</p>
+
+    <p><strong>Article 1. Data Set and Grant of License</strong></p>
+    <p>1.1 The Dataset has been compiled by members of The Hong Kong Polytechnic University and comprises publicly available data from Reddit with the purpose of assessing users at suicide risk.</p>
+    <p>1.2 The Hong Kong Polytechnic University grants Recipient a non-exclusive license to use the Data Set solely for not-for-profit educational and/or research purposes. Permitted uses include, but are not limited to, viewing parts or the whole of the Data Set; comparing data or content from the Data Set with data or content in other data sets; verifying research results with the Data Set; and extracting any part of the Data Set for use in Recipient publications or Recipient research in accordance with the terms of this Agreement.</p>
+
+    <p><strong>Article 2. Recipient Representations</strong></p>
+    <p>2.1 Recipient represents that it is not bound by any pre-existing legal obligations or other applicable law(s) that prevent Recipient from receiving or using the Data Set.</p>
+    <p>2.2 Recipient shall provide proper citation and acknowledgement to The Hong Kong Polytechnic University as the source of the Data Set in Recipient publications, presentations, or other public dissemination of work utilizing the Data Set. Please cite:</p>
+    <pre style="background:#f5f5f5; padding:10px; font-size:12px; overflow-x:auto;">@article{li2022suicide,
+  title={Suicide risk level prediction and suicide trigger detection: A benchmark dataset},
+  author={Li, Jun and Chen, Xinhong and Lin, Zehang and Yang, Kaiqi and Leong, Hong Va and Yu, Nancy Xiaonan and Li, Qing},
+  journal={HKIE Transactions Hong Kong Institution of Engineers},
+  volume={29},
+  number={4},
+  pages={268--282},
+  year={2022},
+  publisher={Taylor & Francis}
+}</pre>
+    <p>2.3 Recipient shall use the Data Set for non-commercial, educational and/or research purposes only.</p>
+    <p>2.4 Recipient shall provide The Hong Kong Polytechnic University with immediate notice in writing of any breach of this Agreement, and if identification of any user in the Data Set becomes known to Recipient, Recipient shall also immediately use its reasonable best efforts to mitigate any harm or damage from such breach.</p>
+
+    <p><strong>Article 3. Recipient Restrictions</strong></p>
+    <p>3.1 Recipient shall not deduce or obtain information from the Data Set that results in Recipient or any third party(ies) directly or indirectly identifying any research subjects with or without the aid of other information acquired elsewhere.</p>
+    <p>3.2 Recipient shall not use the Data Set in any way prohibited by applicable local, state, or federal laws.</p>
+    <p>3.3 Recipient shall not modify the Data Set, except as allowed hereunder.</p>
+    <p>3.4 Recipient shall not transfer any part of the Data Set to any third party without prior written consent from The Hong Kong Polytechnic University.</p>
+    <p>3.5 Recipient shall not make or use the Data Set for any commercial purpose.</p>
+  </div>
+</div>
+
+<script>
+  /* ── Accordion ── */
+  var acc = document.getElementsByClassName("accordion");
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      if (this.getAttribute("onclick") && this.getAttribute("onclick").indexOf("window.location") !== -1) return;
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel && panel.classList.contains("panel")) {
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      }
+    });
+  }
+
+  /* ── FAQ ── */
+  var faqQuestions = document.getElementsByClassName("faq-question");
+  for (var i = 0; i < faqQuestions.length; i++) {
+    faqQuestions[i].addEventListener("click", function() {
+      var answer = this.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    });
+  }
+
+  /* ── Enroll checkbox ── */
+  function toggleEnrollButton() {
+    var cb = document.getElementById("agreeCheckbox");
+    var btn = document.getElementById("enrollBtn");
+    if (cb.checked) {
+      btn.disabled = false;
+      btn.classList.remove("button-disabled");
+    } else {
+      btn.disabled = true;
+      btn.classList.add("button-disabled");
+    }
+  }
+
+  /* ── File upload (placeholder — backend needed for real upload) ── */
+  document.getElementById('uploadForm').onsubmit = function(event) {
+    event.preventDefault();
+    var fileInput = document.getElementById('fileInput');
+    if (!fileInput.files.length) return;
+    var file = fileInput.files[0];
+    if (!file.name.endsWith('.json')) {
+      alert('Please upload a .json file.');
+      return;
+    }
+    var progress = document.getElementById('uploadProgress');
+    var progressText = document.getElementById('progressText');
+    progress.style.display = 'block';
+    progressText.textContent = 'Uploading...';
+    var val = 0;
+    var interval = setInterval(function() {
+      val += 10;
+      progress.value = val;
+      if (val >= 100) {
+        clearInterval(interval);
+        progressText.textContent = 'Upload complete. Score will be updated on the leaderboard the following day.';
+      }
+    }, 100);
+  };
+
+  /* ── Close DUA modal on outside click ── */
+  window.onclick = function(event) {
+    var modal = document.getElementById('duaModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+</script>
+</body>
+</html>
