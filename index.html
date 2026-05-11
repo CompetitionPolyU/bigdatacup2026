@@ -229,11 +229,11 @@ Given the same post, identify and categorize text spans that serve as clinical e
 <strong>Evaluation (Subtask 2):</strong> Weighted F1 score across all three evidence categories.
 <br><br>
 
-<strong>Composite Scoring:</strong> The final leaderboard score is computed as:
+<strong>Composite Scoring:</strong> The leaderboard score is computed as:
 <br>
-<code>Final Score = 0.60 × Weighted_F1(Subtask1) + 0.40 × Weighted_F1(Subtask2)</code>
+<code>Score = Subtask1 (0.4*suicide risk detection + 0.3*evidence support for detection) + Subtask2 (0.3*suicide factors identification)</code>
 <br>
-Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no penalty for skipping Subtask 2, but they are ineligible for the composite leaderboard).
+Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no penalty for skipping Subtask 2).
 <br><br>
 
 <strong>Submission format:</strong> Please submit your detections as a <code>.json</code> file with the following structure. The file name must be <code>YourTeamName.json</code>.
