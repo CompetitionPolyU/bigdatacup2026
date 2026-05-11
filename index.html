@@ -285,7 +285,7 @@ Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no p
     <tr>
       <td>evidence</td>
       <td>list</td>
-      <td>List of text spans</td>
+      <td>List of evidence text spans that support the predicted suicide risk level. Each span should be copied verbatim from the original post.</td>
     </tr>
     <tr>
       <td>factors</td>
@@ -295,10 +295,10 @@ Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no p
   </tbody>
 </table>
 <br>
-A sample submission file and format validator script will be provided with the dataset release.
+A sample submission file will be provided with the dataset release.
 <br><br>
 
-<strong>Final evaluation:</strong> The final evaluation will be conducted after the submission deadline using a held-out test set. Only teams that submit both their detection results file and a report by the deadline will qualify for the final evaluation. Code and reports will be submitted via Google Drive; instructions will be sent by email in advance.
+<strong>Final evaluation:</strong> The final evaluation will be conducted after the submission deadline using a held-out test set. Only teams that submit both their source code and a report by the deadline will qualify for the final evaluation. Code and reports will be submitted via Google Drive; instructions will be sent by email in advance.
 </p>
 </div>
 
@@ -309,7 +309,7 @@ A sample submission file and format validator script will be provided with the d
 <button class="accordion">Prediction file submission</button>
 <div class="panel">
 <p>
-Please submit the prediction file created by your team. Multiple submissions are permitted during the evaluation phase (up to 3 per day). The file format should be <code>.json</code>, and the file name must be: <code>YourTeamName.json</code>. Scores of uploaded prediction results will be updated on the leaderboard the following day. For a detailed explanation of the submission format, please refer to the 'Task Description' section above.
+Please submit the prediction file created by your team. Multiple submissions are permitted during the evaluation phase (up to 3 per day). The file format should be <code>.csv</code>, and the file name must be: <code>YourTeamName.csv</code>. Scores of uploaded prediction results will be updated on the leaderboard in real time. For a detailed explanation of the submission format, please refer to the 'Task Description' section above.
 </p>
 <form id="uploadForm">
   <input type="file" id="fileInput" name="file" accept=".json" required>
