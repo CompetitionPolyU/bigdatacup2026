@@ -204,21 +204,22 @@ During the competition, participants upload formatted predictions file to a live
 <button class="accordion">Task description</button>
 <div class="panel">
 <p>
-This challenge consists of <strong>two subtasks</strong>. Participants may compete in both subtasks. The final composite score is weighted <strong>60% on Subtask 1</strong> and <strong>40% on Subtask 2</strong>, with Weighted F1 used as the evaluation metric for both.
+This challenge consists of <strong>two subtasks</strong>. Participants may compete in both subtasks. The final composite score is weighted <strong>70% on Subtask 1</strong> and <strong>30% on Subtask 2</strong>, with Weighted F1 used as the evaluation metric for both.
 <br><br>
 
-<strong>Subtask 1: Suicide Risk Detection (Weight: 60%)</strong><br>
-Given a Reddit post, predict the author's suicide risk level into one of four categories:
+<strong>Subtask 1: Suicide Risk Detection (Weight: 70%)</strong><br>
+Given a Reddit post, identify the author's suicide risk level into one of four categories:
 <ul>
   <li><strong>Indicator</strong>: The post contains no explicit mentions of suicide.</li>
   <li><strong>Ideation</strong>: The post contains explicit suicidal expressions but no suicidal plan.</li>
   <li><strong>Behavior</strong>: The post contains explicit suicidal expressions and self-harm/suicidal plan.</li>
   <li><strong>Attempt</strong>: The post contains explicit mentions of recent/past suicidal attempts.</li>
 </ul>
-<strong>Evaluation (Subtask 1):</strong> Weighted F1 score across all four risk levels.
+<strong>Evaluation (Subtask 1)</strong> 1) identify the suicide risk level of a social media post: Weighted F1. 2) The evidence extraction task is evaluated using Phrase F1. After case-insensitive normalization, a predicted phrase is considered correct if it either contains a ground-truth phrase or is contained by a ground-truth phrase. This allows partial but faithful extraction, such as matching “kill myself” with “I want to kill myself”. Phrase precision measures how many predicted phrases match the ground truth, while phrase recall measures how many ground-truth phrases are covered by the prediction. The final Phrase F1 is averaged over all posts.
+  
 <br><br>
 
-<strong>Subtask 2: Structured Clinical Evidence Extraction (Weight: 40%)</strong><br>
+<strong>Subtask 2: Structured Clinical Evidence Extraction (Weight: 30%)</strong><br>
 Given the same post, identify and categorize text spans that serve as clinical evidence for the risk-level assessment. Evidence spans fall into three categories:
 <ul>
   <li><strong>Risk Factor</strong>: A span indicating elevated risk (e.g., hopelessness, social isolation, prior attempt).</li>
