@@ -220,7 +220,7 @@ Given a Reddit post, identify the author's suicide risk level into one of four c
 <br><br>
 
 <strong>Subtask 2: Suicide Factors Identification (Weight: 30%)</strong><br>
-Given the same post, identify all suicide-related factors that are present in the text. This subtask is formulated as a multi-label classification problem: each post may be assigned zero, one, or multiple factor labels. The factor taxonomy is adapted from Li, J., Wang, X., Li, H., Yan, Y., Leong, H. V., Feng, L., et al. (2025), <em>Protective factor-aware dynamic influence learning for suicide risk prediction on social media</em>, arXiv:2507.10008.
+Given the same post, identify all suicide-related factors that are present in the post. This subtask is formulated as a multi-label classification problem: each post may be assigned zero, one, or multiple factor labels. The factor taxonomy is adapted from Li, J., Wang, X., Li, H., Yan, Y., Leong, H. V., Feng, L., et al. (2025), <em>Protective factor-aware dynamic influence learning for suicide risk prediction on social media</em>, arXiv:2507.10008.
 <br><br>
 
 The factor taxonomy includes the following categories:
@@ -253,8 +253,6 @@ The factor taxonomy includes the following categories:
 
 Participants are expected to predict all applicable factor labels for each post according to the predefined factor taxonomy.
 <br><br>
-<strong>Evaluation (Subtask 2):</strong> Weighted F1 score across all factor categories.
-<br><br>
 
 <strong>Composite Scoring:</strong> The leaderboard score is computed as:
 <br>
@@ -263,7 +261,7 @@ Participants are expected to predict all applicable factor labels for each post 
 Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no penalty for skipping Subtask 2).
 <br><br>
 
-<strong>Submission format:</strong> Please submit your detections as a <code>.json</code> file with the following structure. The file name must be <code>YourTeamName.json</code>.
+<strong>Submission format:</strong> Please submit your detections as a <code>.csv</code> file with the following structure. The file name must be <code>YourTeamName.csv</code>.
 <br><br>
 <table>
   <thead>
@@ -282,12 +280,17 @@ Teams that participate in Subtask 1 only will be scored on Subtask 1 alone (no p
     <tr>
       <td>risk_level</td>
       <td>string</td>
-      <td>One of: no_risk, low_risk, moderate_risk, high_risk</td>
+      <td>One of: Indicator, Ideation, Behavior, Attempt</td>
     </tr>
     <tr>
       <td>evidence</td>
       <td>list</td>
-      <td>List of {span, category} dicts for Subtask 2 (empty list if not participating)</td>
+      <td>List of text spans</td>
+    </tr>
+    <tr>
+      <td>factors</td>
+      <td>list</td>
+      <td>List of factor categories</td>
     </tr>
   </tbody>
 </table>
