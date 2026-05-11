@@ -215,18 +215,45 @@ Given a Reddit post, identify the author's suicide risk level into one of four c
   <li><strong>Behavior</strong>: The post contains explicit suicidal expressions and self-harm/suicidal plan.</li>
   <li><strong>Attempt</strong>: The post contains explicit mentions of recent/past suicidal attempts.</li>
 </ul>
-<strong>Evaluation (Subtask 1)</strong> 1) identify the suicide risk level of a social media post: Weighted F1. 2) The evidence extraction task is evaluated using Phrase F1. After case-insensitive normalization, a predicted phrase is considered correct if it either contains a ground-truth phrase or is contained by a ground-truth phrase. This allows partial but faithful extraction, such as matching “kill myself” with “I want to kill myself”. Phrase precision measures how many predicted phrases match the ground truth, while phrase recall measures how many ground-truth phrases are covered by the prediction. The final Phrase F1 is averaged over all posts.
+<strong>Evaluation on Subtask 1: </strong> 1) identify the suicide risk level of a social media post: Weighted F1. 2) The evidence extraction task is evaluated using Phrase F1. After case-insensitive normalization, a predicted phrase is considered correct if it either contains a ground-truth phrase or is contained by a ground-truth phrase. This allows partial but faithful extraction, such as matching “kill myself” with “I want to kill myself”. Phrase precision measures how many predicted phrases match the ground truth, while phrase recall measures how many ground-truth phrases are covered by the prediction. The final Phrase F1 is averaged over all posts.
   
 <br><br>
 
-<strong>Subtask 2: Structured Clinical Evidence Extraction (Weight: 30%)</strong><br>
-Given the same post, identify and categorize text spans that serve as clinical evidence for the risk-level assessment. Evidence spans fall into three categories:
+<strong>Subtask 2: Suicide Factors Identification (Weight: 30%)</strong><br>
+Given the same post, identify all suicide-related factors that are present in the text. This subtask is formulated as a multi-label classification problem: each post may be assigned zero, one, or multiple factor labels. The factor taxonomy is adapted from Li, J., Wang, X., Li, H., Yan, Y., Leong, H. V., Feng, L., et al. (2025), <em>Protective factor-aware dynamic influence learning for suicide risk prediction on social media</em>, arXiv:2507.10008.
+<br><br>
+
+The factor taxonomy includes the following categories:
 <ul>
-  <li><strong>Risk Factor</strong>: A span indicating elevated risk (e.g., hopelessness, social isolation, prior attempt).</li>
-  <li><strong>Protective Factor</strong>: A span indicating resilience or support (e.g., family connection, future plans, professional help-seeking).</li>
-  <li><strong>Warning Sign</strong>: A span indicating imminent danger signals (e.g., giving away possessions, saying goodbye).</li>
+  <li>Mental health issues</li>
+  <li>Physical health/characteristic</li>
+  <li>Substance use</li>
+  <li>Hopelessness</li>
+  <li>Emotion dysregulation</li>
+  <li>Low self-esteem</li>
+  <li>Poor school performance</li>
+  <li>Low socio-economic status</li>
+  <li>Interpersonal violence</li>
+  <li>Prior self-harm or suicidal thought/attempt</li>
+  <li>Poor social support</li>
+  <li>Interpersonal difficulty</li>
+  <li>Dysfunctional family</li>
+  <li>Exposure to others' suicide</li>
+  <li>Stressful life event</li>
+  <li>Traumatic experience</li>
+  <li>Cognitive deficits</li>
+  <li>Suicide means</li>
+  <li>Sexual orientation related issues</li>
+  <li>Social support</li>
+  <li>Coping strategy</li>
+  <li>Psychological capital</li>
+  <li>Sense of responsibility</li>
+  <li>Meaning in life</li>
 </ul>
-<strong>Evaluation (Subtask 2):</strong> Weighted F1 score across all three evidence categories.
+
+Participants are expected to predict all applicable factor labels for each post according to the predefined factor taxonomy.
+<br><br>
+<strong>Evaluation (Subtask 2):</strong> Weighted F1 score across all factor categories.
 <br><br>
 
 <strong>Composite Scoring:</strong> The leaderboard score is computed as:
